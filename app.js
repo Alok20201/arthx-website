@@ -162,3 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add further processing logic here, such as validation or submission handling
     });
 });
+document.querySelector('.menu-btn').addEventListener('click', function() {
+    document.querySelector('.links-container').classList.toggle('active');
+});
