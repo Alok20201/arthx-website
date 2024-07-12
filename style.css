@@ -1232,7 +1232,7 @@ nav{
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  overflow: hidden;
+  overflow: ;
 }
 .links-container{
   height: 100%;
