@@ -1387,20 +1387,26 @@ nav svg {
 }
 
 @media (max-width: 450px) {
-  .links-container {
-    flex-direction: column;
-    align-items: flex-start;
-justify-content: flex-start;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    z-index: 10;
-    width: 300px;
-    height: 100vh; /* Ensure it covers the full viewport height */
-    background-color: var(--color-1); /* Background color for sidebar */
-    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-    transition: 0.75s ease-out;
-  }
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100vw; /* Changed from -100% to -100vw */
+        z-index: 10;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--color-1);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        transition: 0.75s ease-out;
+    }
+
+    .links-container.active {
+        right: 0; /* Adjust this to 0 when the menu is active */
+    }
+}
+
 
   nav a {
     box-sizing: border-box;
