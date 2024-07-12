@@ -450,6 +450,11 @@ header .menu {
 }
 }
 
+
+@media (max-width: 768px) {.slider .item .content {
+background-color: rgba(0, 0, 1, 0.111);}}
+
+
 .slider .list .item.active {
     opacity: 1;
     z-index: 10;
