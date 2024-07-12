@@ -1336,16 +1336,15 @@ nav {
   z-index: 20; /* Ensure nav is on top of other content */
 }
 
-.links-container, nav .home-link {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative; /* Ensure it respects position in nav */
-  justify-content: flex-end;
-}
-
+links-container, nav .home-link {
+    height: 100%;
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    
 nav a, nav .home-link {
   height: 100%;
   padding: 0 20px;
