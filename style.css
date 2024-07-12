@@ -443,7 +443,7 @@ header .menu {
 }
 
 @media (max-width: 768px) {.slider .item .content h2 {
-    font-size: 0px; /* Adjust font size */
+    font-size: 30px; /* Adjust font size */
     margin-bottom: 10px; /* Example margin for the heading */
     font-weight: bold; /* Example style for the heading */
 
