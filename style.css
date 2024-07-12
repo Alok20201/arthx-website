@@ -1488,4 +1488,8 @@ nav svg {
 
 
   }
-  
+
+body, html {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
