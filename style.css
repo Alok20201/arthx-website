@@ -1503,6 +1503,7 @@ nav svg {
   @media(max-width:768px) {
     .homeA .content h1 {
         font-size: 35px;
+        padding:20px;
 
     }
 
