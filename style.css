@@ -1411,13 +1411,7 @@ nav svg {
 }
 
 
-  nav a {
-    box-sizing: border-box;
-    height: auto;
-    width: 100%;
-    padding: 20px 30px;
-    justify-content: flex-start;
-  }
+
 
   .open-sidebar-button,
   .close-sidebar-button {
