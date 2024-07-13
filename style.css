@@ -1411,7 +1411,14 @@ nav svg {
 }
 
 
-
+@media (max-width: 450px) {nav a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+                          
 
   .open-sidebar-button,
   .close-sidebar-button {
@@ -1421,7 +1428,7 @@ nav svg {
 
   #sidebar-active:checked ~ .links-container {
     right: 0;
-  }
+  } }
 
   #sidebar-active:checked ~ #overlay {
     display: block; /* Show the overlay when the sidebar is active */
