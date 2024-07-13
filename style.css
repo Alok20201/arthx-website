@@ -1337,29 +1337,16 @@ nav {
   z-index: 20; /* Ensure nav is on top of other content */
 }
 
-@media (max-width: 768px) {
-    .links-container {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -100%; /* Ensure it's off-screen */
-        z-index: 10;
-        width: 100vw; /* Full viewport width */
-        max-width: 300px; /* Maximum width */
-        height: 100vh;
-        background-color: var(--color-1);
-        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-        transition: 0.75s ease-out;
-    }
-
-    .links-container.active {
-        right: 0; /* Slide into view */
-    }
+.links-container, nav .home-link {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative; /* Ensure it respects position in nav */
+  justify-content: flex-end;
 }
 
-    
 nav a, nav .home-link {
   height: 100%;
   padding: 0 20px;
@@ -1371,10 +1358,6 @@ nav a, nav .home-link {
 
 nav a:hover {
   background-color: var(--accent-color);
-}
-
-nav .home-link {
-  
 }
 
 nav svg {
