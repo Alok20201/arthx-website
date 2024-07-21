@@ -30,37 +30,35 @@
       rel="stylesheet"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="aboutstyle.css" />
 
 
 
 </head>
 
 <body>
-    <nav class="arthx-nav">
-        <a href="about.html" id="arthx-logo">ArthX</a>
-        <input type="checkbox" id="arthx-hamburger" />
-        <label for="arthx-hamburger" class="arthx-label">
+    <nav>
+        <div class="logo-text"></div>
+        <label for="sidebar-active" class="open-sidebar-button">
           <i class="fa-solid fa-bars"></i>
         </label>
-        <ul class="arthx-ul">
-          <li>
-            <a href="index.html" class="arthx-a">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="arthx-a arthx-a arthx-active">Mission Directive</a>
-          </li>
-          <li>
-            <a href="#features" class="arthx-a">Deployments</a>
-          </li>
-          <li>
-            <a href="#services" class="arthx-a">Gallery</a>
-          </li>
-          <li>
-            <a href="#FAQ" class="arthx-a">Connect</a>
-          </li>
-        </ul>
-      </nav>
+        <input type="checkbox" id="sidebar-active">
+        
+        <div class="logo-text">Arth-X</div> <!-- Logo Text -->
+    
+        <div class="links-container">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+    
+          <!-- NOT IN TUTORIAL: The <a> tags are linked to the subpages -->
+            <a href="/Users/alok/Desktop/HTML/index.html">Home</a> 
+            <a href="Parallax Scrolling Website/about.html">MISSION DIRECTIVE</a> 
+            <a href="products.html">DEPLOYMENTS</a>
+            <a href="blog.html">GALLERY</a>
+            <a href="login.html">CONNECT</a>
+          </div>
+    </nav>
     
 
     <div class="banner">
