@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="deploystyles.css">
+    <script src="https://kit.fontawesome.com/4e0929f09c.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo-text"></div>
+        <label for="sidebar-active" class="open-sidebar-button">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+        <input type="checkbox" id="sidebar-active">
+        
+        <div class="logo-text">Arth-X</div> <!-- Logo Text -->
+    
+        <div class="links-container">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+    
+          <!-- NOT IN TUTORIAL: The <a> tags are linked to the subpages -->
+            <a href="/Users/alok/Desktop/HTML/index.html">Home</a> 
+            <a href="Parallax Scrolling Website/about.html">MISSION DIRECTIVE</a> 
+            <a href="deployments.html">DEPLOYMENTS</a>
+            <a href="blog.html">GALLERY</a>
+            <a href="login.html">CONNECT</a>
+          </div>
+    </nav>
+    <main>
+        <div class="banner">
+            <h5> </h5>
+            <div>
+                <h1 class="left"></h1>
+                <h1 class="right">Deployments</h1>
+            </div>
+            <h4>
+                Secure Contact. Swift Response.
+                <br>
+            </h4>
+            <button>Connect Now &#8599</button>
+
+            <canvas id="dotsCanvas"></canvas>
+        </div>
+    </main>    
+   
+
+    <!-- Insert the new section here -->
+    <section class="container">
+        <div class="card__container">
+            <article class="card__article">
+                <img src="images/landscape-1.png" alt="image" class="card__img">
+                <div class="card__data">
+                    <span class="card__description">Our Work</span>
+                    <h2 class="card__title">Custom Drones</h2>
+                    <a href="#" class="card__button">Read More</a>
+                </div>
+            </article>
+            <article class="card__article">
+                <img src="images/landscape-2.png" alt="image" class="card__img">
+                <div class="card__data">
+                    <span class="card__description">Our Work</span>
+                    <h2 class="card__title">Prototyping</h2>
+                    <a href="#" class="card__button">Read More</a>
+                </div>
+            </article>
+            <article class="card__article">
+                <img src="images/landscape-3.png" alt="image" class="card__img">
+                <div class="card__data">
+                    <span class="card__desription">Our Work</span>
+                    <h2 class="card__title">Content Creation</h2>
+                    <a href="#" class="card__button">Read More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+    <section class="sec" id="banner-section">
+        <div class="banner">
+            <div class="slider" style="--quantity: 10">
+                <div class="item" style="--position: 1"><img src="images/dragon_1.jpg" alt=""></div>
+                <div class="item" style="--position: 2"><img src="images/dragon_2.jpg" alt=""></div>
+                <div class="item" style="--position: 3"><img src="images/dragon_3.jpg" alt=""></div>
+                <div class="item" style="--position: 4"><img src="images/dragon_4.jpg" alt=""></div>
+                <div class="item" style="--position: 5"><img src="images/dragon_5.jpg" alt=""></div>
+                <div class="item" style="--position: 6"><img src="images/dragon_6.jpg" alt=""></div>
+                <div class="item" style="--position: 7"><img src="images/dragon_7.jpg" alt=""></div>
+                <div class="item" style="--position: 8"><img src="images/dragon_8.jpg" alt=""></div>
+                <div class="item" style="--position: 9"><img src="images/dragon_9.jpg" alt=""></div>
+                <div class="item" style="--position: 10"><img src="images/dragon_10.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <h1 data-content="Our fleet">
+                    Our fleet
+                </h1>
+                <div class="author">
+                    <h2>Arth-X</h2>
+                    <p><b></b></p>
+                    <p>
+                        We Believe in Excellence
+                    </p>
+                </div>
+                <div class="model"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           const cardArticles = document.querySelectorAll('.card__article');
+  
+           const observerOptions = {
+              root: null, // Use the viewport as the root
+              rootMargin: '-30% 0px', // Adjust root margin to trigger earlier on smaller screens
+              threshold: 0.1 // Adjust the threshold as needed
+           };
+  
+           const observerCallback = (entries, observer) => {
+              entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                    entry.target.querySelector('.card__data').classList.add('card__data--visible');
+                 } else {
+                    entry.target.querySelector('.card__data').classList.remove('card__data--visible');
+                 }
+              });
+           };
+  
+           const observer = new IntersectionObserver(observerCallback, observerOptions);
+  
+           cardArticles.forEach(card => observer.observe(card));
+        });
+     </script>
+    <!-- End of new section -->
+    <footer>
+        <div class="row">
+            <div class="col">
+                <img src="images/logo.png" class="logo" alt="Logo">
+                <p>ArthX Drones PVT LTD is dedicated to pioneering advanced drone technology for defense and security applications.</p>
+            </div>
+            <div class="col">
+                <h3>Office<div class="underline"><span></span></div></h3>
+                <p>Bypass Road</p>
+                <p>Mandvi, Vadodara</p>
+                <p>Gujrat, PIN 390001, India</p>
+                <p class="email-id">pk@arthx.in</p>
+                <h4>+91 - 70193 79296</h4>
+            </div>
+            
+            <div class="col">
+                <h3>Links<div class="underline"><span></span></div></h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Mission Directive</a></li>
+                    <li><a href="#">Deployments</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Connect</a></li>
+                </ul>
+            </div>
+            
+            <div class="col">
+                <h3>Newsletter<div class="underline"><span></span></div></h3>
+                <form>
+                    <i class="fa-solid fa-at"></i>
+                    <input type="email" placeholder=" Enter your email id" required>
+                    <button type="submit"><i class="fa-sharp fa-solid fa-right-long"></i></button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@arthx1977" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/arthx.in/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=7019379296" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/company/arthxx/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        <hr>
+                    <p class="copyright">ArthX Drones PVT LTD @ 2024 - All Rights Reserved</p>
+
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
