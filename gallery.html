@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Video Gallery</title>
+    <script src="https://kit.fontawesome.com/4e0929f09c.js" crossorigin="anonymous"></script>
+
+    
+
+</head>
+
+
+
+<body>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: serif;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            background: rgb(0, 0, 0);
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 1100px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(6, 5, 5);
+            padding-top: 20px;
+            margin: auto;
+        }
+        
+        .gallery-heading {
+            font-size: 2em;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .container .main-video {
+            width: 100%;
+            padding: 10px;
+        }
+        
+        .container .main-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid rgb(0, 255, 51);
+        }
+        
+        .container .videos {
+            width: 100%;
+            padding: 10px 0 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .container .videos video {
+            width: 22%;
+            height: auto;
+            margin: 10px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .container .videos video:hover,
+        .container .videos .active {
+            transform: scale(1.06);
+            border: 3px solid rgb(0, 255, 98);
+        }
+        
+        .contain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .bubbles {
+            position: absolute;
+            display: flex;
+            z-index: -24;
+        }
+        
+        .bubbles span:nth-child(even) {
+            background: #ff2d75;
+            box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+        }
+        
+        .bubbles span {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background: #4fc3dc;
+            margin: 0 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+            animation: animate 15s linear infinite;
+            animation-duration: calc(125s / var(--i));
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(100vh) scale(0);
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+            }
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+        
+            .container .main-video {
+                width: 100%;
+                padding: 0;
+            }
+        
+            .container .main-video video {
+                width: 100%;
+                height: auto;
+            }
+        
+            .container .videos {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 10px 0;
+            }
+        
+            .container .videos video {
+                width: 30%;
+                height: auto;
+                margin: 5px;
+            }
+        }
+        
+        /* Add additional styles here if needed */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+          }
+          nav{
+            height: 60px;
+            background-color: var(--color-1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            
+          }
+          .links-cont{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+          
+          }
+          nav a{
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+          }
+          nav a:hover{
+            background-color: var(--accent-color);
+          }
+          nav .home-link{
+            margin-right: auto;
+          }
+          nav svg{
+            fill: var(--text-color);
+          }
+          #sidebar-active{
+            display: none;
+          }
+          .open-sidebar-button, .close-sidebar-button{
+            display: none;
+          }
+          @media(max-width: 450px){
+            .links-cont{
+              flex-direction: column;
+              align-items: flex-start;
+          
+              position: fixed;
+              top: 0;
+              right: -100%;
+              z-index: 10;
+              width: 300px;
+          
+              background-color: var(--color-1);
+              box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+              transition: 0.75s ease-out;
+            }
+            nav a{
+              box-sizing: border-box;
+              height: auto;
+              width: 100%;
+              padding: 20px 30px;
+              justify-content: flex-start;
+            }
+            .open-sidebar-button, .close-sidebar-button{
+              padding: 20px;
+              display: block;
+            }
+            #sidebar-active:checked ~ .links-cont{
+              right: 0;
+            }
+            #sidebar-active:checked ~ #overlay{
+              height: 100%;
+              width: 100%;
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 9;
+            }
+          }
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+          
+          :root {
+            --color-1: #0f1016;
+            --text-color: #f0f0f0;
+            --accent-color: #006aff;
+          }
+          
+          * {
+            margin: 0;
+            padding: 0;
+          }
+          
+          html {
+            font-size: 12pt;
+            font-family: Poppins, Segoe UI, Tahoma, sans-serif;
+          }
+          
+          nav {
+            height: 60px;
+            background-color: var(--color-1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative; /* Ensure positioning context for overlay */
+            z-index: 20; /* Ensure nav is on top of other content */
+          }
+          
+          .links-cont, nav .home-link {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative; /* Ensure it respects position in nav */
+            justify-content: flex-end;
+          }
+          
+          nav a, nav .home-link {
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+          }
+          
+          nav a:hover {
+            background-color: var(--accent-color);
+          }
+          
+          nav .home-link {
+            
+          }
+          
+          nav svg {
+            fill: var(--text-color);
+          }
+          
+          #sidebar-active {
+            display: none;
+          }
+          
+          .open-sidebar-button,
+          .close-sidebar-button {
+            display: none;
+          }
+          
+          #overlay {
+            display: none; /* Ensure overlay is hidden by default */
+          }
+          
+          .logo-text {
+            font-size: 1.5rem; /* Adjust size as needed */
+            color: var(--text-color);
+            padding: 20px;
+            font-weight: bold;
+            position: absolute;
+            left: 20px; /* Adjust as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10; /* Ensure logo is above other content */
+          }
+          
+          @media (max-width: 450px) {
+            .links-cont {
+              flex-direction: column;
+              align-items: flex-start;
+          justify-content: flex-start;
+              position: fixed;
+              top: 0;
+              right: -100%;
+              z-index: 10;
+              width: 300px;
+              height: 100vh; /* Ensure it covers the full viewport height */
+              background-color: var(--color-1); /* Background color for sidebar */
+              box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+              transition: 0.75s ease-out;
+            }
+          
+            nav a {
+              box-sizing: border-box;
+              height: auto;
+              width: 100%;
+              padding: 20px 30px;
+              justify-content: flex-start;
+            }
+          
+            .open-sidebar-button,
+            .close-sidebar-button {
+              padding: 20px;
+              display: block;
+            }
+          
+            #sidebar-active:checked ~ .links-cont {
+              right: 0;
+            }
+          
+            #sidebar-active:checked ~ #overlay {
+              display: block; /* Show the overlay when the sidebar is active */
+              height: 100%;
+              width: 100%;
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 9;
+              background: rgba(79, 47, 47, 0.5); /* Add a semi-transparent background */
+            }
+          
+            .logo-text {
+              position: absolute;
+              left: 20px; /* Adjust position as needed */
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          
+          @media(max-width: 768px){
+              .right-column p, .learn-more-btn{
+                display: none;
+              }
+          }
+          
+          @media(max-width: 768px){
+              .left-column h1, .learn-more-btn{
+                display: absolute;
+                font-size: 30px;
+              }
+          }
+          
+          .home .content {
+              z-index: 888;
+              color: #fff;
+              width: 70%;
+              margin-top: 50px;
+              display: block; /* Make sure content is displayed */
+              opacity: 1; /* Ensure opacity is fully visible */
+              transition: opacity 0.5s ease; /* Smooth transition */
+            }
+            
+            .home .content p {
+              margin-bottom: 65px;
+              /* Add debugging styles */
+              background: rgba(255, 255, 255, 0.2); /* Light background to check visibility */
+              padding: 10px; /* Padding for visibility */
+              border-radius: 5px; /* Optional: Rounded corners */
+            }
+            
+            .home .content.active {
+              opacity: 1; /* Ensure active content is fully visible */
+            }
+            
+            @media(max-width:768px) {
+              .homeA .content h1 {
+                  font-size: 35px;
+          
+              }
+          
+          
+            }
+            body, html {
+              overflow-x: hidden; /* Prevent horizontal scrolling */
+          }
+          .fa-solid.fa-bars{
+            color: white
+          }
+          .fa-solid.fa-xmark{
+            color: white
+          }
+          </style>
+
+
+
+    <nav>
+        <div class="logo-text"></div>
+        <label for="sidebar-active" class="open-sidebar-button">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+        <input type="checkbox" id="sidebar-active">
+        
+        <div class="logo-text">Arth-X</div> <!-- Logo Text -->
+    
+        <div class="links-cont">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+    
+          <!--  The <a> tags are linked to the subpages -->
+            <a href="/index.html">HOME</a> 
+            <a href="about.html">MISSION DIRECTIVE</a> 
+            <a href="deployments.html">DEPLOYMENTS</a>
+            <a href="blog.html">GALLERY</a>
+            <a href="login.html">CONNECT</a>
+          </div>
+    </nav>
+
+    <div class="contain">
+
+        <div class="bubbles">
+
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+
+
+            
+
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="container">
+        <div class="videos">
+            <video class="active" src="videos/video1.mp4" muted></video>
+            <video src="videos/video2.mp4" muted></video>
+            <video src="videos/video3.mp4" muted></video>
+            <video src="videos/video4.mp4" muted></video>
+            
+        </div>
+        <div class="main-video">
+            <video src="videos/video1.mp4" muted controls autoplay></video>
+        </div>
+    </div>
+
+    <!-- jquery cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('.videos video').click(function(){
+
+                $(this).addClass('active').siblings().removeClass('active');
+
+                var src = $(this).attr('src');
+                $('.main-video video').attr('src',src);
+            });
+        });
+
+    </script>
+
+</body>
+</html>
