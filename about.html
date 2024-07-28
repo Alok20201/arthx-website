@@ -1108,11 +1108,11 @@
               </label>
     
           <!-- NOT IN TUTORIAL: The <a> tags are linked to the subpages -->
-            <a href="index.html">HOME</a> 
-          <a href="about.html">MISSION DIRECTIVE</a> 
-          <a href="deployments.html">DEPLOYMENTS</a>
-          <a href="gallery.html">GALLERY</a>
-          <a href="connect.html">CONNECT</a>
+            <a href="/Users/alok/Desktop/HTML/index.html">Home</a> 
+            <a href="Parallax Scrolling Website/about.html">MISSION DIRECTIVE</a> 
+            <a href="deployments.html">DEPLOYMENTS</a>
+            <a href="blog.html">GALLERY</a>
+            <a href="login.html">CONNECT</a>
           </div>
     </nav>
     
@@ -1197,6 +1197,9 @@
                     </div>
                 </div>
 
+
+                      
+
                 <!-- Swiper Slide 2 -->
                 <div class="swiper-slide">
                     <div class="team-box">
@@ -1215,45 +1218,35 @@
                     </div>
                 </div>
 
-
-                    <div class="swiper-slide">
-                    <div class="team-box">
-                        <div class="t-b-img">
-                            <img src="sha bg.png" alt="Team Member 2">
-                        </div>
-                        <div class="t-b-text">
-                            <strong>Shashank Kumar</strong>
-                            <span>CFO</span>
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                <!-- Swiper Slide 3 -->
 <div class="swiper-slide">
-                    <div class="team-box">
-                        <div class="t-b-img">
-                            <img src="lavina.webp" alt="Team Member 3">
-                        </div>
-                        <div class="t-b-text">
-                            <strong>Lavina Pratap</strong>
-                            <span>CFO</span>
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                
+    <div class="team-box">
+        <div class="t-b-img">
+            <img src="sha bg.png" alt="Team Member 3"> <!-- Replace with the image source -->
+        </div>
+        <div class="t-b-text">
+            <strong>Lavina Pratap</strong> <!-- Replace with the team member's name -->
+            <span>Role</span> <!-- Replace with the role -->
+            <div class="team-social">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+            
+
         <!-- End Swiper -->
         <div class="marquee-w">
             <div class="marquee">
@@ -1281,11 +1274,11 @@
             <div class="col">
                 <h3>Links<div class="underline"><span></span></div></h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Mission Directive</a></li>
-                    <li><a href="deployments.html">Deployments</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="connect.html">Connect</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Mission Directive</a></li>
+                    <li><a href="#">Deployments</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Connect</a></li>
                 </ul>
             </div>
             <div class="col">
@@ -1336,81 +1329,6 @@
                 el: ".swiper-pagination",
             },
         });
-
-        // Select elements for parallax and animations
-const listBg = document.querySelectorAll('.bg');
-const listTab = document.querySelectorAll('.tab');
-const titleBanner = document.querySelector('.banner h1');
-
-// Scroll event listener for custom animations and parallax effect
-window.addEventListener("scroll", () => {
-    let top = window.scrollY;
-
-    // Parallax effect for background elements
-    listBg.forEach((bg, index) => {
-        if (index !== 0 && index !== 8) {
-            bg.style.transform = `translateY(${top * index / 2}px)`;
-        } else if (index === 0) {
-            bg.style.transform = `translateY(${top / 3}px)`;
-        }
-    });
-
-    // Title banner animation based on scroll
-    titleBanner.style.transform = `translateY(${top * 2}px)`; // Adjust multiplier as needed
-
-    // Toggle 'active' class on tabs based on scroll position
-    listTab.forEach(tab => {
-        if (tab.offsetTop - top < 550) {
-            tab.classList.add('active');
-        } else {
-            tab.classList.remove('active');
-        }
-    });
-});
-
-// Initialize ScrollReveal with common options
-const sr = ScrollReveal({
-    duration: window.innerWidth < 700 ? 800 : 1000,
-    reset: true,
-    interval: 0,
-    viewFactor: window.innerWidth < 700 ? 0.2 : 0.1
-});
-
-// Configure individual elements for ScrollReveal
-sr.reveal('.logo-img', { origin: 'top', distance: '50px', delay: 100 });
-sr.reveal('.logo', { origin: 'top', distance: '50px', delay: 200 });
-sr.reveal('.navigation a', { origin: 'top', distance: '50px', delay: 300 });
-sr.reveal('.banner', { origin: 'bottom', distance: '50px', delay: 100 });
-sr.reveal('.sec', { origin: 'bottom', distance: '50px', delay: 200 });
-sr.reveal('.arthx-all-text', { origin: 'bottom', distance: '50px', delay: 300 });
-sr.reveal('.team-box', { origin: 'bottom', distance: '50px', delay: 400 });
-sr.reveal('.swiper-pagination', { origin: 'bottom', distance: '50px', delay: 500 });
-sr.reveal('.marquee', { origin: 'bottom', distance: '50px', delay: 600 });
-sr.reveal('.col', { origin: 'bottom', distance: '50px', delay: 700 });
-sr.reveal('#footer', { origin: 'bottom', distance: '50px', delay: 800 });
-
-// Event listener for scroll to trigger reveal animations
-window.addEventListener('scroll', () => {
-    sr.reveal('.reveal-on-scroll', {
-        origin: 'bottom',
-        distance: '50px',
-        delay: 200
-    });
-});
-
-// Select the form and handle its submission
-const form = document.getElementById('email-form');
-
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Retrieve the entered email
-    const email = form.querySelector('input[type="email"]').value;
-    console.log('Submitted email:', email);
-
-    // Add further processing logic here, such as validation or submission handling
-});
-        
     </script>
 
     <!-- ScrollReveal Library -->
@@ -1418,6 +1336,32 @@ form.addEventListener('submit', function(event) {
 
     <!-- Parallax Effect JavaScript -->
     <script src="app.js"></script>
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    
+
 </body>
 
 </html>
